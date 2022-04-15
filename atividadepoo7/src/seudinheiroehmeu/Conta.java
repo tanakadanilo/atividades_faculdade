@@ -22,7 +22,7 @@ public class Conta {
 
     protected String nomeTitular;
     protected String enderecoTitular;
-    protected String telefoneTitular;
+    protected Telefone telefoneTitular;
     protected String emailTitular;
     protected String cpf;
     protected String sexo;
@@ -54,7 +54,7 @@ public class Conta {
         this.numeroConta = numeroConta;
         this.nomeTitular = nomeTitular;
         this.enderecoTitular = enderecoTitular;
-        this.telefoneTitular = telefoneTitular;
+        this.telefoneTitular = new Telefone(telefoneTitular);
         this.emailTitular = emailTitular;
         this.cpf = cpf;
         this.idade = idade;
@@ -73,7 +73,7 @@ public class Conta {
         this.numeroConta = numeroConta;
         this.nomeTitular = nomeTitular;
         this.enderecoTitular = enderecoTitular;
-        this.telefoneTitular = telefoneTitular;
+        this.telefoneTitular = new Telefone(telefoneTitular);
         this.emailTitular = emailTitular;
         this.cpf = cpf;
         this.sexo = sexo;
@@ -82,6 +82,7 @@ public class Conta {
         this.profissao = profissao;
         this.tipoDeConta = tipoDeConta;
         movimentacoesNaConta = new ArrayList();
+
     }
 
     public String getNomeTitular() {
@@ -101,10 +102,10 @@ public class Conta {
     }
 
     public String getTelefoneTitular() {
-        return telefoneTitular;
+        return telefoneTitular.getTelefone();
     }
 
-    public void setTelefoneTitular(String telefoneTitular) {
+    public void setTelefoneTitular(Telefone telefoneTitular) {
         this.telefoneTitular = telefoneTitular;
     }
 
