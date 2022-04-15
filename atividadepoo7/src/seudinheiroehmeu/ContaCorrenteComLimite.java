@@ -72,7 +72,7 @@ public class ContaCorrenteComLimite extends Conta {
             saldoEmConta += valorEmprestimoDesejado;
             valorDeEmprestimosEmAberto += valorEmprestimoDesejado;
 
-            Extratos extratoParaAdicionar = new Extratos("Empréstimo feito", valorEmprestimoDesejado);
+            Extratos extratoParaAdicionar = new Extratos("Empréstimo feito", valorEmprestimoDesejado, this.saldoEmConta);
             movimentacoesNaConta.add(extratoParaAdicionar);
 
             return "Empréstimo feito no valor de: " + valorEmprestimoDesejado;
@@ -103,7 +103,7 @@ public class ContaCorrenteComLimite extends Conta {
         saldoEmConta -= valorPago;
         valorDeEmprestimosEmAberto -= valorPago;
 
-        Extratos extratoParaAdicionar = new Extratos("Pagamento de empréstimo", valorPago);
+        Extratos extratoParaAdicionar = new Extratos("Pagamento de empréstimo", valorPago, this.saldoEmConta);
         movimentacoesNaConta.add(extratoParaAdicionar);
 
         if (valorDeEmprestimosEmAberto == 0) {
@@ -117,6 +117,6 @@ public class ContaCorrenteComLimite extends Conta {
         if (valorEmprestimoDesejado <= 0) {
             throw new Exception("O valor do emprestimo não pode ser menor nem igual a zero");
         }
-        return (valorEmprestimoDesejado + valorDeEmprestimosEmAberto) <= limiteDeCredito;
+        return ((valorEmprestimoDesejado + valorDeEmprestimosEmAberto) <= limiteDeCredito);
     }
 }

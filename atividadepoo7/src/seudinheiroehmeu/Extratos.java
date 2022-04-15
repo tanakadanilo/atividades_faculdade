@@ -13,10 +13,12 @@ public class Extratos {
 
     protected String operacaoRealizada;
     protected double valorMovimentado;
+    protected float saldoEmConta;
 
-    public Extratos(String operacaoRealizada, double valorMovimentado) {
+    public Extratos(String operacaoRealizada, double valorMovimentado, float saldoEmConta) {
         this.operacaoRealizada = operacaoRealizada;
         this.valorMovimentado = valorMovimentado;
+        this.saldoEmConta = saldoEmConta;
     }
 
     public String getOperacaoRealizada() {

@@ -185,7 +185,7 @@ public class Conta {
             throw new Exception("Saldo insuficiente");
         }
         saldoEmConta -= valor;
-        Extratos extratoParaAdicionar = new Extratos("Sacar", valor);
+        Extratos extratoParaAdicionar = new Extratos("Sacar", valor, this.saldoEmConta);
         movimentacoesNaConta.add(extratoParaAdicionar);
     }
 
@@ -194,7 +194,7 @@ public class Conta {
             throw new Exception("O valor a ser sacado deve ser maior do que zero");
         }
         saldoEmConta += valor;
-        Extratos extratoParaAdicionar = new Extratos("Depositar", valor);
+        Extratos extratoParaAdicionar = new Extratos("Depositar", valor, this.saldoEmConta);
         movimentacoesNaConta.add(extratoParaAdicionar);
     }
 
